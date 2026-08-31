@@ -1,0 +1,483 @@
+
+
+Worker progress report · HTML
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Worker Progress Report - Claim No. 20042047</title>
+<style>
+  :root{
+    --ink:#1a1a1a;
+    --blue-link:#1155cc;
+    --border:#000;
+    --page-bg:#fff;
+    --page-w:850px;
+  }
+  *{box-sizing:border-box;}
+  body{
+    font-family: Georgia, 'Times New Roman', serif;
+    background:#e9e9e9;
+    margin:0;
+    padding:30px 0;
+    color:var(--ink);
+  }
+  .page{
+    background:var(--page-bg);
+    width:var(--page-w);
+    margin:0 auto 30px auto;
+    padding:40px 50px;
+    box-shadow:0 0 8px rgba(0,0,0,0.2);
+    position:relative;
+  }
+  /* Header */
+  .header{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    border-bottom:2px solid var(--border);
+    padding-bottom:14px;
+    margin-bottom:18px;
+  }
+  .logo-block{
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .logo-icon{
+    width:200px;
+    height:auto;
+    flex-shrink:0;
+  }
+  
+  .logo-text .wcb{
+    font-weight:900;
+    font-size:20px;
+    letter-spacing:0.5px;
+  }
+  .logo-text .full{
+    font-size:11.5px;
+    font-weight:700;
+    max-width:170px;
+  }
+  .address-block{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:11px;
+    line-height:1.5;
+    text-align:left;
+    margin-top:2px;
+  }
+  .title-block{
+    text-align:right;
+  }
+  .title-block h1{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:20px;
+    font-weight:400;
+    margin:0 0 10px 0;
+  }
+  .claim-boxes{
+    display:flex;
+    gap:8px;
+    justify-content:flex-end;
+  }
+  .claim-box{
+    border:1.5px solid var(--border);
+    padding:6px 12px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:13px;
+    font-weight:600;
+  }
+ 
+  .intro{
+    font-size:14px;
+    margin:14px 0 20px 0;
+  }
+  .intro .name{
+    color:var(--blue-link);
+  }
+ 
+  .section-title{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:15px;
+    font-weight:600;
+    margin:22px 0 8px 0;
+  }
+ 
+  .box{
+    border:1.5px solid var(--border);
+    padding:10px 12px;
+    margin-bottom:14px;
+  }
+  .box .label-small{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:11px;
+    margin-bottom:8px;
+  }
+ 
+  .checkbox-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:24px;
+    align-items:flex-start;
+    font-size:13px;
+  }
+  .checkbox-item{
+    display:flex;
+    align-items:flex-start;
+    gap:6px;
+    min-width:150px;
+  }
+  .checkbox-item.wide{
+    min-width:260px;
+  }
+  .cb{
+    width:15px;
+    height:15px;
+    border:1.3px solid var(--border);
+    flex-shrink:0;
+    margin-top:1px;
+    position:relative;
+  }
+  .cb.checked::after{
+    content:"";
+    position:absolute;
+    left:2px;
+    top:-1px;
+    width:8px;
+    height:12px;
+    border-right:2.5px solid var(--ink);
+    border-bottom:2.5px solid var(--ink);
+    transform:rotate(38deg);
+  }
+  .fill-line{
+    border-bottom:1px solid var(--ink);
+    color:var(--blue-link);
+    min-width:130px;
+    text-align:center;
+    padding:0 4px 2px 4px;
+    font-size:13px;
+    display:inline-block;
+  }
+  .fill-underline-wrap{
+    display:inline-flex;
+    flex-direction:column;
+    align-items:center;
+  }
+  .fill-underline-wrap .cap{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:9.5px;
+    margin-top:2px;
+  }
+ 
+  .freeform-answer{
+    color:var(--blue-link);
+    font-size:14px;
+    margin-top:4px;
+  }
+ 
+  .line-field{
+    display:flex;
+    align-items:baseline;
+    gap:8px;
+    font-size:13px;
+    margin:14px 0;
+  }
+  .line-field .blank{
+    flex:1;
+    border-bottom:1px solid var(--ink);
+    min-height:16px;
+  }
+  .line-field .blank-narrow{
+    width:220px;
+    border-bottom:1px solid var(--ink);
+    min-height:16px;
+  }
+  .cap-label{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:9.5px;
+    text-align:center;
+    margin-top:2px;
+  }
+ 
+  .empty-box{
+    border:1.5px solid var(--border);
+    min-height:80px;
+    padding:10px 12px;
+    margin-bottom:16px;
+  }
+ 
+  .contact-line{
+    font-size:13px;
+    display:flex;
+    align-items:flex-end;
+    gap:10px;
+    margin:16px 0;
+    flex-wrap:wrap;
+  }
+  .contact-line .grow{
+    flex:1;
+  }
+  .contact-line .blank{
+    border-bottom:1px solid var(--ink);
+    min-height:16px;
+  }
+  .contact-line .cap{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:9.5px;
+    text-align:center;
+    margin-top:2px;
+  }
+ 
+  .pain-scale{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:12px;
+  }
+  .pain-scale-title{
+    font-size:13px;
+    font-family:Georgia, serif;
+    margin-bottom:10px;
+  }
+  .pain-numbers{
+    display:flex;
+    justify-content:space-between;
+    max-width:340px;
+  }
+  .pain-numbers .num{
+    width:26px;
+    height:26px;
+    border:1.3px solid var(--border);
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:12px;
+  }
+ 
+  .footer{
+    display:flex;
+    justify-content:space-between;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:10.5px;
+    border-top:1px solid #999;
+    padding-top:8px;
+    margin-top:30px;
+  }
+  .footer .right{
+    text-align:right;
+  }
+ 
+  .certify-text{
+    font-size:11.5px;
+    line-height:1.6;
+    text-align:justify;
+    margin:20px 0;
+  }
+  .certify-check{
+    display:flex;
+    align-items:flex-start;
+    gap:8px;
+    margin-top:14px;
+  }
+ 
+  @media print{
+    body{background:#fff;padding:0;}
+    .page{box-shadow:none;margin:0;}
+  }
+</style>
+</head>
+<body>
+ 
+<!-- PAGE 1 -->
+<div class="page">
+  <div class="header">
+    <div class="logo-block">
+      <img src="image.jpeg" alt="WCB logo" class="logo-icon">
+    </div>
+    <div class="address-block">
+      333 Broadway<br>
+      Winnipeg, MB R3C 4W3<br>
+      Phone: (204) 954-4321<br>
+      Toll Free: 1-855-954-4321<br>
+      wcb.mb.ca
+    </div>
+    <div class="title-block">
+      <h1>Worker Progress Report</h1>
+      <div class="claim-boxes">
+        <div class="claim-box">Claim No. 20042047</div>
+        <div class="claim-box">WP</div>
+      </div>
+    </div>
+  </div>
+ 
+  <div class="intro"><span class="name">Madeleine Willson</span> provided the following updates in relation to their claim:</div>
+ 
+  <div class="section-title">Return to Work</div>
+ 
+  <div class="box">
+    <div class="label-small">Select one:</div>
+    <div class="checkbox-row">
+      <div class="checkbox-item wide"><div class="cb"></div><span>I have not missed time from work</span></div>
+      <div class="checkbox-item wide"><div class="cb"></div><span>I have not returned to work</span></div>
+      <div class="checkbox-item wide">
+        <div class="cb checked"></div>
+        <span>I returned to work on: <div class="fill-underline-wrap"><span class="fill-line">March 15, 2024</span><span class="cap">Date</span></div></span>
+      </div>
+    </div>
+  </div>
+ 
+  <div class="box">
+    <div class="label-small">I am working:</div>
+    <div class="checkbox-row">
+      <div class="checkbox-item"><div class="cb"></div><span>Full duties, regular hours</span></div>
+      <div class="checkbox-item"><div class="cb"></div><span>Full duties, reduced hours</span></div>
+      <div class="checkbox-item"><div class="cb"></div><span>Modified duties, regular hours</span></div>
+      <div class="checkbox-item"><div class="cb checked"></div><span>Modified duties, reduced hours</span></div>
+    </div>
+    <div class="checkbox-item" style="margin-top:12px;"><div class="cb"></div><span>Other: <span style="border-bottom:1px solid #000;display:inline-block;min-width:320px;">&nbsp;</span></span></div>
+  </div>
+ 
+  <div class="box">
+    <div class="label-small">My return to work is going:</div>
+    <div class="freeform-answer">Terrible. Testing Testing</div>
+  </div>
+ 
+  <div class="line-field">
+    <span>I expect to return to work on:</span>
+    <div style="display:flex;flex-direction:column;flex:1;">
+      <div class="blank"></div>
+      <div class="cap-label">Date</div>
+    </div>
+  </div>
+ 
+  <div class="section-title" style="margin-top:6px;">I have the following concerns about returning to work:</div>
+  <div class="empty-box"></div>
+ 
+  <div class="contact-line">
+    <span>I was most recently in contact with:</span>
+    <div class="grow"><div class="blank"></div><div class="cap">(Name of employer contact)</div></div>
+    <span>on</span>
+    <div style="width:180px;"><div class="blank"></div><div class="cap">Date</div></div>
+  </div>
+ 
+  <div class="section-title">Recovery</div>
+  <div class="box">
+    <div class="label-small">Select one:</div>
+    <div class="checkbox-row">
+      <div class="checkbox-item wide"><div class="cb"></div><span>I have not fully recovered from my workplace injury.</span></div>
+      <div class="checkbox-item wide"><div class="cb checked"></div><span>I have fully recovered from my workplace injury.</span></div>
+    </div>
+  </div>
+ 
+  <div class="section-title">I have provided the following comments about my recovery:</div>
+  <div class="empty-box"></div>
+ 
+  <div class="footer">
+    <div>Worker App ID: 712041</div>
+    <div class="right">Submitted: March 19, 2024 19:21<br>Page 1 of 3</div>
+  </div>
+</div>
+ 
+<!-- PAGE 2 -->
+<div class="page">
+  <div class="pain-scale">
+    <div class="pain-scale-title">I rate my current pain/discomfort on a scale of 1-10,<br>where 1 is no pain and 10 is severe pain out of 10.</div>
+    <div class="pain-numbers">
+      <div class="num">1</div><div class="num">2</div><div class="num">3</div><div class="num">4</div><div class="num">5</div>
+    </div>
+    <div class="pain-numbers" style="margin-top:6px;">
+      <div class="num">6</div><div class="num">7</div><div class="num">8</div><div class="num">9</div><div class="num">10</div>
+    </div>
+  </div>
+ 
+  <div class="box" style="margin-top:24px;">
+    <div class="label-small">Select one:</div>
+    <div class="checkbox-row" style="flex-direction:column;gap:10px;">
+      <div class="checkbox-item wide"><div class="cb"></div><span>I am not continuing to receive medical treatment for my workplace injury.</span></div>
+      <div class="checkbox-item wide"><div class="cb"></div><span>I am continuing to receive medical treatment for my workplace injury from:</span></div>
+    </div>
+    <div style="margin-top:6px;padding-left:26px;">
+      <div class="fill-underline-wrap" style="align-items:flex-start;">
+        <span class="fill-line" style="min-width:400px;text-align:left;">&nbsp;</span>
+        <span class="cap">(Medical Provider Type)</span>
+      </div>
+    </div>
+  </div>
+ 
+  <div class="contact-line">
+    <span>My last medical treatment was from</span>
+    <div class="grow"><div class="blank"></div><div class="cap">Date (Medical Provider Name)</div></div>
+  </div>
+  <div class="contact-line">
+    <span>My next medical treatment is from</span>
+    <div class="grow"><div class="blank"></div><div class="cap">Date (Medical Provider Name)</div></div>
+  </div>
+  <div class="contact-line">
+    <span>I am attending a Chiropractor or Physiotherapist</span>
+    <div class="grow"><div class="blank"></div><div class="cap">(Frequency)</div></div>
+  </div>
+ 
+  <div class="box" style="margin-top:20px;">
+    <div class="label-small">Select one:</div>
+    <div class="checkbox-row">
+      <div class="checkbox-item wide"><div class="cb"></div><span>I am not taking medication for my workplace injury.</span></div>
+      <div class="checkbox-item wide"><div class="cb"></div><span>I am taking medication for my workplace injury:</span></div>
+    </div>
+    <div style="margin-top:6px;padding-left:26px;">
+      <div class="fill-underline-wrap" style="align-items:flex-start;">
+        <span class="fill-line" style="min-width:400px;text-align:left;">&nbsp;</span>
+        <span class="cap">(Name of prescribed medication)</span>
+      </div>
+    </div>
+  </div>
+ 
+  <div class="box" style="margin-top:20px;">
+    <div class="label-small">Select one:</div>
+    <div class="checkbox-row">
+      <div class="checkbox-item wide"><div class="cb"></div><span>I am not doing home exercises for my workplace injury.</span></div>
+      <div class="checkbox-item wide"><div class="cb"></div><span>I am doing home exercises for my workplace injury.</span></div>
+    </div>
+  </div>
+ 
+  <div class="section-title">List the exercises you are doing:</div>
+  <div class="empty-box" style="min-height:60px;"></div>
+ 
+  <div class="section-title">Other Information</div>
+  <div class="box">
+    <div class="label-small">I would like to provide the following additional information about my claim/injury:</div>
+    <div class="freeform-answer">No info Testing Testing</div>
+  </div>
+ 
+  <div class="footer">
+    <div>Worker App ID: 712041</div>
+    <div class="right">Submitted: March 19, 2024 19:21<br>Page 2 of 3</div>
+  </div>
+</div>
+ 
+<!-- PAGE 3 -->
+<div class="page">
+  <div class="certify-text">
+    I certify that the information given on this form is true, correct and complete to the best of my
+    knowledge. I agree to notify the Workers Compensation Board of Manitoba (WCB) immediately once I
+    return to any form of work and/or employment. I understand that it is an offence to knowingly make
+    a false statement to the WCB. I also understand that it is an offence to withhold information from
+    WCB which affects my entitlement to compensation (e.g., full or partial recovery from injury, ability to
+    return to work, sources of additional income, etc.). I understand that refusing to co-operate with, or
+    follow my treatment, may result in the WCB reducing or suspending my benefits.
+  </div>
+ 
+  <div class="certify-check">
+    <div class="cb checked"></div>
+    <span style="font-size:12.5px;">I understand that the <a href="#" style="color:var(--blue-link);">Privacy Notice</a> applies to the personal information collected in this document.</span>
+  </div>
+ 
+  <div class="footer" style="margin-top:400px;">
+    <div>Worker App ID: 712041</div>
+    <div class="right">Submitted: March 19, 2024 19:21<br>Page 3 of 3</div>
+  </div>
+</div>
+ 
+</body>
+</html>
+ 
+
